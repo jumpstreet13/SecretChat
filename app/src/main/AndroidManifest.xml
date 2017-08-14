@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".presentation.chat.ChatActivity">
         </activity>
+        <activity android:name=".presentation.avatar_choosing.AvatarActivity">
+        </activity>
     </application>
 
 </manifest>

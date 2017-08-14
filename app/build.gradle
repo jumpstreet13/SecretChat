@@ -37,9 +37,9 @@ dependencies {
     compile 'com.arello-mobile:moxy:1.5.3'
     compile 'com.arello-mobile:moxy-app-compat:1.5.3'
     compile 'ru.terrakok.cicerone:cicerone:2.0.0'
+    compile 'com.jakewharton:butterknife:8.8.0'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
     annotationProcessor 'com.arello-mobile:moxy-compiler:1.5.3'
-    compile 'com.jakewharton:butterknife:8.8.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.0'
 }

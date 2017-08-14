@@ -34,33 +34,7 @@ public class LoginActivtiy extends BaseActivity implements LoginView {
                 .save(new Qiscus.SetUserListener() {
                     @Override
                     public void onSuccess(QiscusAccount qiscusAccount) {
-                        Qiscus.buildGroupChatRoomWith("UniqueId")
-                                .withName("RoomName")
-                                .withAvatar("http://avatar.url.com/group.jpg")
-                                .build(new Qiscus.ChatBuilderListener() {
-                                    @Override
-                                    public void onSuccess(QiscusChatRoom qiscusChatRoom) {
-                                        startActivity(QiscusGroupChatActivity.generateIntent(LoginActivtiy.this, qiscusChatRoom));
-                                    }
 
-                                    @Override
-                                    public void onError(Throwable throwable) {
-                                        if (throwable instanceof HttpException) { //Error response from server
-                                            HttpException e = (HttpException) throwable;
-                                            try {
-                                                String errorMessage = e.response().errorBody().string();
-                                                Log.e("TAG", errorMessage);
-                                                showError(errorMessage);
-                                            } catch (IOException e1) {
-                                                e1.printStackTrace();
-                                            }
-                                        } else if (throwable instanceof IOException) { //Error from network
-                                            showError("Can not connect to qiscus server!");
-                                        } else { //Unknown error
-                                            showError("Unexpected error!");
-                                        }
-                                    }
-                                });
                     }
                     @Override
                     public void onError(Throwable throwable) {
