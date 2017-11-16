@@ -5,4 +5,6 @@ package com.smedialink.abakarmagomedov.secretchat.domain.interactor;
  */
 
 public class LoginInteractor {
+
+
 }

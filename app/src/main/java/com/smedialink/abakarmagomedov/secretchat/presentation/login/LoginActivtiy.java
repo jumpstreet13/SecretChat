@@ -17,12 +17,11 @@ import dagger.android.AndroidInjection;
 
 public class LoginActivtiy extends MvpActivity<LoginView, LoginPresenter> implements LoginView {
 
-    @BindView(R.id.log_in_edit_text) EditText editText;
+    @BindView(R.id.login_edit_text) EditText editText;
     @Inject LoginPresenter presenter;
 
     @OnClick(R.id.log_in_button)
     void onButtonClick() {
-
     }
 
     @Override
@@ -31,7 +30,6 @@ public class LoginActivtiy extends MvpActivity<LoginView, LoginPresenter> implem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-
     }
 
     @NonNull
@@ -40,4 +38,18 @@ public class LoginActivtiy extends MvpActivity<LoginView, LoginPresenter> implem
         return presenter;
     }
 
+    @Override
+    public void showError(String error) {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void loginSuccessful() {
+
+    }
 }

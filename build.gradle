@@ -14,10 +14,12 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven { url  "https://dl.bintray.com/qiscustech/maven" }
+        maven { url "https://maven.google.com" }
+        maven { url "https://dl.bintray.com/qiscustech/maven" }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
