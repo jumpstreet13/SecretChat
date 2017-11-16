@@ -41,4 +41,5 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.11-rc2'
     annotationProcessor 'com.arello-mobile:moxy-compiler:1.5.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.0'
+    compile 'com.android.support:gridlayout-v7:25.3.1'
 }

@@ -7,4 +7,6 @@
     android:layout_height="match_parent"
     tools:context="com.smedialink.abakarmagomedov.secretchat.presentation.avatar_choosing.AvatarActivity">
 
+
+
 </android.support.constraint.ConstraintLayout>
