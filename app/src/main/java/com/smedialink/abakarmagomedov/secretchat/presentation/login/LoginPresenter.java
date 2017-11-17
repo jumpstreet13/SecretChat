@@ -6,6 +6,9 @@ import com.smedialink.abakarmagomedov.secretchat.domain.interactor.LoginInteract
 
 import javax.inject.Inject;
 
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+
 /**
  * Created by abakarmagomedov on 05/08/17.
  */
@@ -19,8 +22,7 @@ class LoginPresenter extends MvpBasePresenter<LoginView> {
         this.loginInteractor = loginInteractor;
     }
 
-    public void logIn(String userName) {
-
+    public void logIn(String login, String password) {
     }
 
 }
