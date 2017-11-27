@@ -15,11 +15,9 @@ import rx.schedulers.Schedulers;
 
 class LoginPresenter extends MvpBasePresenter<LoginView> {
 
-    private LoginInteractor loginInteractor;
-
     @Inject
-    public LoginPresenter(LoginInteractor loginInteractor) {
-        this.loginInteractor = loginInteractor;
+    public LoginPresenter() {
+
     }
 
     public void logIn(String login, String password) {

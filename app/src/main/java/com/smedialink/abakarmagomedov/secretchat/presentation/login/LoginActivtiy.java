@@ -1,5 +1,6 @@
 package com.smedialink.abakarmagomedov.secretchat.presentation.login;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.widget.EditText;

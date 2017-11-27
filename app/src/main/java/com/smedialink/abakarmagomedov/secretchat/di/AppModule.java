@@ -3,6 +3,9 @@ package com.smedialink.abakarmagomedov.secretchat.di;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.smedialink.abakarmagomedov.secretchat.App;
+import com.smedialink.abakarmagomedov.secretchat.di.scope.PerApplication;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -15,17 +18,9 @@ import dagger.Provides;
 @Module
 public class AppModule {
 
-    private Context appContext;
-
-    public AppModule(@NonNull Context appContext) {
-        this.appContext = appContext;
-    }
-
+    @PerApplication
     @Provides
-    @Singleton
-    Context provideContext() {
-        return appContext;
+    Context provideContext(App application) {
+        return application;
     }
-
-
 }

@@ -4,20 +4,18 @@ import android.app.Activity;
 import android.app.Application;
 
 import com.qiscus.sdk.Qiscus;
+import com.smedialink.abakarmagomedov.secretchat.di.DaggerAppComponent;
 
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
-import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasActivityInjector;
+import dagger.android.support.DaggerApplication;
 
 /**
  * Created by abakarmagomedov on 04/08/17.
  */
 
-public class App extends Application implements HasActivityInjector {
-
-    @Inject DispatchingAndroidInjector<Activity> dispatchingActivityInjector;
+public class App extends DaggerApplication {
 
     @Override
     public void onCreate() {
@@ -25,9 +23,8 @@ public class App extends Application implements HasActivityInjector {
         Qiscus.init(this, "durovchat");
     }
 
-
     @Override
-    public AndroidInjector<Activity> activityInjector() {
-        return dispatchingActivityInjector;
+    protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
+        return DaggerAppComponent.builder().create(this);
     }
 }
