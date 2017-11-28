@@ -1,6 +1,7 @@
 package com.smedialink.abakarmagomedov.secretchat.di;
 
 import com.smedialink.abakarmagomedov.secretchat.App;
+import com.smedialink.abakarmagomedov.secretchat.di.scope.PerApplication;
 import com.smedialink.abakarmagomedov.secretchat.presentation.avatar_choosing.AvatarActivity;
 
 import javax.inject.Singleton;
@@ -14,7 +15,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
  * Created by abakarmagomedov on 05/08/17.
  */
 
-@Component(modules = {AppModule.class, AppScBuildersModule.class, AndroidSupportInjectionModule.class})
+@PerApplication
+@Component(modules = {AppModule.class, AppScBuildersModule.class, RepoModule.class, AndroidSupportInjectionModule.class})
 public interface AppComponent extends AndroidInjector<App> {
     @Component.Builder
     abstract class Builder extends AndroidInjector.Builder<App> {
