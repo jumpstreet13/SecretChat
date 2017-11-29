@@ -1,6 +1,5 @@
 package com.smedialink.abakarmagomedov.secretchat.data.repository;
 
-import com.qiscus.sdk.Qiscus;
 import com.smedialink.abakarmagomedov.secretchat.data.datasource.factory.UserModelStoreFactory;
 import com.smedialink.abakarmagomedov.secretchat.data.mapper.UserEntityMapper;
 import com.smedialink.abakarmagomedov.secretchat.domain.entity.UserEntity;
@@ -26,7 +25,6 @@ public class UserEntityRepositoryImpl implements UserEntityRepository {
 
     @Override
     public Completable logIn(UserEntity user) {
-
         return dataSourceFactory.getDiskUserModelSource()
                 .loginUser(mapper.map(user));
     }

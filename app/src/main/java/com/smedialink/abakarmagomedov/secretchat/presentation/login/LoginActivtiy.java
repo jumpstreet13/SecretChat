@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.hannesdorfmann.mosby3.mvp.MvpActivity;
 import com.smedialink.abakarmagomedov.secretchat.R;
+import com.smedialink.abakarmagomedov.secretchat.domain.entity.UserEntity;
 
 import javax.inject.Inject;
 
@@ -25,9 +26,13 @@ public class LoginActivtiy extends MvpActivity<LoginView, LoginPresenter> implem
     @BindView(R.id.login_edit_text) EditText editText;
     @BindView(R.id.progress_bar) ProgressBar progressBar;
     @Inject LoginPresenter presenter;
+    private UserEntity userEntity;
 
     @OnClick(R.id.log_in_button)
     void onButtonClick() {
+        userEntity = new UserEntity();
+        userEntity.setLogin(editText.getText().toString().trim());
+        presenter.logIn(userEntity);
     }
 
     @Override
