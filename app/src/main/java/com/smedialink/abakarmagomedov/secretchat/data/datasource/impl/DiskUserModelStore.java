@@ -15,7 +15,6 @@ public class DiskUserModelStore implements UserModelStore {
 
     private SharedPrefManager manager;
     private QiscusAccountMapper mapper;
-    private Boolean isSuccesfull;
 
     @Inject
     public DiskUserModelStore(SharedPrefManager manager, QiscusAccountMapper mapper) {
@@ -30,19 +29,11 @@ public class DiskUserModelStore implements UserModelStore {
 
     @Override
     public Completable loginUser(UserModel userModel) {
-        Qiscus.setUser(userModel.getUsername(), userModel.getRtKey())
+        return Qiscus.setUser(userModel.getUsername(), userModel.getRtKey())
                 .withUsername(userModel.getUsername())
                 .save()
-                .subscribe(qiscusAccount -> {
-                    manager.writeUserToPref(mapper.map(qiscusAccount));
-                    isSuccesfull = true;
-                }, throwable -> {
-                    isSuccesfull = false;
-                });
-        if (isSuccesfull) {
-            return Completable.complete();
-        }
-        return Completable.error(new Throwable());
+                .doOnNext(qiscusAccount -> manager.writeUserToPref(mapper.map(qiscusAccount)))
+                .toCompletable();
     }
 
 }

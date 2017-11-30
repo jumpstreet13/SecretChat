@@ -32,6 +32,7 @@ class LoginPresenter extends MvpBasePresenter<LoginView> {
         interactor.logInUser(user)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(() -> getView().loginSuccessful(), throwable -> getView().showError(throwable.getMessage()));
     }
 
     public void getUser() {
