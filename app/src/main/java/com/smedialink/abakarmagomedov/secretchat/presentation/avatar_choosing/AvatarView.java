@@ -7,4 +7,9 @@ import com.hannesdorfmann.mosby3.mvp.MvpView;
  */
 
 public interface AvatarView extends MvpView {
+
+    void showSucces();
+
+    void showError(String error);
+
 }

@@ -29,7 +29,7 @@ public class DiskUserModelStore implements UserModelStore {
 
     @Override
     public Completable loginUser(UserModel userModel) {
-        return Qiscus.setUser(userModel.getUsername(), userModel.getRtKey())
+        return Qiscus.setUser(userModel.getUsername(), userModel.getUsername())
                 .withUsername(userModel.getUsername())
                 .save()
                 .doOnNext(qiscusAccount -> manager.writeUserToPref(mapper.map(qiscusAccount)))

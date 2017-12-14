@@ -19,7 +19,7 @@ import rx.schedulers.Schedulers;
  * Created by abakarmagomedov on 05/08/17.
  */
 
-class LoginPresenter extends MvpBasePresenter<LoginView> {
+public class LoginPresenter extends MvpBasePresenter<LoginView> {
 
     private LoginInteractor interactor;
 

@@ -1,6 +1,7 @@
 package com.smedialink.abakarmagomedov.secretchat.presentation.login;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -11,8 +12,12 @@ import android.widget.Toast;
 
 
 import com.hannesdorfmann.mosby3.mvp.MvpActivity;
+import com.qiscus.sdk.Qiscus;
+import com.qiscus.sdk.data.remote.QiscusApi;
+import com.qiscus.sdk.util.QiscusRxExecutor;
 import com.smedialink.abakarmagomedov.secretchat.R;
 import com.smedialink.abakarmagomedov.secretchat.domain.entity.UserEntity;
+import com.smedialink.abakarmagomedov.secretchat.presentation.avatar_choosing.AvatarActivity;
 
 import javax.inject.Inject;
 
@@ -26,11 +31,10 @@ public class LoginActivtiy extends MvpActivity<LoginView, LoginPresenter> implem
     @BindView(R.id.login_edit_text) EditText editText;
     @BindView(R.id.progress_bar) ProgressBar progressBar;
     @Inject LoginPresenter presenter;
-    private UserEntity userEntity;
 
     @OnClick(R.id.log_in_button)
     void onButtonClick() {
-        userEntity = new UserEntity();
+        UserEntity userEntity = new UserEntity();
         userEntity.setLogin(editText.getText().toString().trim());
         presenter.logIn(userEntity);
     }
@@ -56,13 +60,21 @@ public class LoginActivtiy extends MvpActivity<LoginView, LoginPresenter> implem
     }
 
     @Override
-    public void showLoading() {
-        progressBar.setVisibility(View.VISIBLE);
-    }
-
-    @Override
     public void loginSuccessful() {
         Toast.makeText(this, "Succes", Toast.LENGTH_LONG).show();
         progressBar.setVisibility(View.GONE);
+        startActivity(new Intent(this, AvatarActivity.class));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+

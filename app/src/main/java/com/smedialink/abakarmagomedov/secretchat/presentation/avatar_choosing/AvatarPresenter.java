@@ -1,22 +1,34 @@
 package com.smedialink.abakarmagomedov.secretchat.presentation.avatar_choosing;
 
 
+import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
 import com.hannesdorfmann.mosby3.mvp.MvpPresenter;
+import com.smedialink.abakarmagomedov.secretchat.data.interactor.AvatarInteractor;
+
+import javax.inject.Inject;
+
+import rx.Scheduler;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by abakarmagomedov on 14/08/17.
  */
 
-public class AvatarPresenter implements MvpPresenter<AvatarView> {
+public class AvatarPresenter extends MvpBasePresenter<AvatarView> {
 
+    private AvatarInteractor interactor;
 
-    @Override
-    public void attachView(AvatarView view) {
-
+    @Inject
+    public AvatarPresenter(AvatarInteractor interactor) {
+        this.interactor = interactor;
     }
 
-    @Override
-    public void detachView(boolean retainInstance) {
-
+    public void setUserAvatar(String avatar) {
+        interactor.setAvatar(avatar)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(() -> getView().showSucces(), throwable -> getView().showError(throwable.getMessage()));
     }
+
 }

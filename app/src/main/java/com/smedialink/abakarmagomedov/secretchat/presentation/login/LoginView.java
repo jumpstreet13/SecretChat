@@ -11,7 +11,5 @@ interface LoginView extends MvpView {
 
     void showError(String error);
 
-    void showLoading();
-
     void loginSuccessful();
 }
