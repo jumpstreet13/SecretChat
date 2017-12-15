@@ -3,6 +3,7 @@ package com.smedialink.abakarmagomedov.secretchat.di;
 import android.app.Activity;
 
 import com.smedialink.abakarmagomedov.secretchat.presentation.login.LoginActivtiy;
+import com.smedialink.abakarmagomedov.secretchat.presentation.login.di.LoginActivityComponent;
 
 import dagger.Binds;
 import dagger.Module;

@@ -1,7 +1,6 @@
-package com.smedialink.abakarmagomedov.secretchat.di;
+package com.smedialink.abakarmagomedov.secretchat.presentation.avatar_choosing.di;
 
 import com.smedialink.abakarmagomedov.secretchat.presentation.avatar_choosing.AvatarActivity;
-import com.smedialink.abakarmagomedov.secretchat.presentation.login.LoginActivtiy;
 
 import dagger.Subcomponent;
 import dagger.android.AndroidInjector;

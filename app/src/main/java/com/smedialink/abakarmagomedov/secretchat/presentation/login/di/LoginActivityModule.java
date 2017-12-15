@@ -1,4 +1,4 @@
-package com.smedialink.abakarmagomedov.secretchat.di;
+package com.smedialink.abakarmagomedov.secretchat.presentation.login.di;
 
 import com.qiscus.sdk.Qiscus;
 import com.smedialink.abakarmagomedov.secretchat.data.datasource.factory.UserModelStoreFactory;
